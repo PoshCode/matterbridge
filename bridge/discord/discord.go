@@ -241,7 +241,7 @@ func (b *Bdiscord) Connect() error {
 		b.c.AddHandler(b.messageEvent)
 	}
 
-	tz, _ := time.LoadLocation("Europe/Prague")
+	tz, _ := time.LoadLocation("UTC")
 	now := time.Now().In(tz)
 	b.c.UpdateCustomStatus("Last restarted: " + now.Format(time.ANSIC))
 
