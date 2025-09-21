@@ -1,5 +1,11 @@
 name: Development
-on: [ push, pull_request ]
+on:
+  push:
+    branches:
+    - "*"
+  pull_request:
+    branches:
+    - master
 jobs:
   lint:
     name: golangci-lint
