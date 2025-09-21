@@ -1,5 +1,18 @@
 name: Development
-on: [ push, pull_request ]
+on:
+  push:
+    branches:
+    - master
+    paths-ignore:
+    - '**/*.md'
+    - '**/*.txt'
+  pull_request:
+    branches:
+    - master
+    paths-ignore:
+    - '**/*.md'
+    - '**/*.txt'
+
 jobs:
   lint:
     name: golangci-lint
@@ -16,7 +29,7 @@ jobs:
   test-build-upload:
     strategy:
       matrix:
-        go-version: [ 1.25.x ]
+        go-version: [ 1.22 ]
         platform: [ ubuntu-latest ]
     runs-on: ${{ matrix.platform }}
     steps:
@@ -24,7 +37,6 @@ jobs:
       uses: actions/setup-go@v6
       with:
         go-version: ${{ matrix.go-version }}
-        stable: false
     - name: Checkout code
       uses: actions/checkout@v5
       with:
