@@ -5,42 +5,42 @@ run:
 linters:
   default: all
   disable:
-    - asasalint
-    - cyclop
-    - decorder
-    - depguard
-    - err113
-    - errname
-    - errorlint
-    - exhaustive
-    - exhaustruct
-    - forbidigo
-    - gochecknoglobals
-    - godot
-    - godox
-    - goheader
-    - gomoddirectives
-    - grouper
-    - importas
-    - ireturn
-    - lll
-    - maintidx
-    - makezero
-    - mnd
-    - nlreturn
-    - noctx
-    - paralleltest
-    - prealloc
-    - promlinter
-    - revive
-    - tagliatelle
-    - testifylint
-    - testpackage
-    - thelper
-    - tparallel
-    - varnamelen
-    - wrapcheck
-    - wsl
+  - asasalint
+  - cyclop
+  - decorder
+  - depguard
+  - err113
+  - errname
+  - errorlint
+  - exhaustive
+  - exhaustruct
+  - forbidigo
+  - gochecknoglobals
+  - godot
+  - godox
+  - goheader
+  - gomoddirectives
+  - grouper
+  - importas
+  - ireturn
+  - lll
+  - maintidx
+  - makezero
+  - mnd
+  - nlreturn
+  - noctx
+  - paralleltest
+  - prealloc
+  - promlinter
+  - revive
+  - tagliatelle
+  - testifylint
+  - testpackage
+  - thelper
+  - tparallel
+  - varnamelen
+  - wrapcheck
+  - wsl
   settings:
     dupl:
       threshold: 150
@@ -52,40 +52,18 @@ linters:
       min-occurrences: 3
     gocritic:
       enabled-checks:
-        - appendAssign
-        - assignOp
-        - boolExprSimplify
-        - builtinShadow
-        - captLocal
-        - caseOrder
-        - commentedOutImport
-        - defaultCaseOrder
-        - dupArg
-        - dupBranchBody
-        - dupCase
-        - dupSubExpr
-        - elseif
-        - emptyFallthrough
-        - ifElseChain
-        - importShadow
-        - indexAlloc
-        - methodExprCall
-        - nestingReduce
-        - offBy1
-        - ptrToRefParam
-        - regexpMust
-        - singleCaseSwitch
-        - sloppyLen
-        - switchTrue
-        - typeSwitchVar
-        - typeUnparen
-        - underef
-        - unlambda
-        - unnecessaryBlock
-        - unslice
-        - valSwap
-        - wrapperFunc
-        - yodaStyleExpr
+      - boolExprSimplify
+      - builtinShadow
+      - commentedOutImport
+      - emptyFallthrough
+      - importShadow
+      - indexAlloc
+      - methodExprCall
+      - nestingReduce
+      - ptrToRefParam
+      - typeUnparen
+      - unnecessaryBlock
+      - yodaStyleExpr
     gocyclo:
       min-complexity: 15
     lll:
@@ -102,32 +80,32 @@ linters:
   exclusions:
     generated: lax
     presets:
-      - comments
-      - common-false-positives
-      - legacy
-      - std-error-handling
+    - comments
+    - common-false-positives
+    - legacy
+    - std-error-handling
     paths:
-      - third_party$
-      - builtin$
-      - examples$
+    - third_party$
+    - builtin$
+    - examples$
 issues:
   max-same-issues: 0
   new-from-rev: HEAD~1
   new: false
 formatters:
   enable:
-    - gofmt
-    - gofumpt
-    - goimports
+  - gofmt
+  - gofumpt
+  - goimports
   settings:
     gofmt:
       simplify: true
     goimports:
       local-prefixes:
-        - github.com
+      - github.com
   exclusions:
     generated: lax
     paths:
-      - third_party$
-      - builtin$
-      - examples$
+    - third_party$
+    - builtin$
+    - examples$

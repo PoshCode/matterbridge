@@ -10,9 +10,9 @@ import (
 	"time"
 
 	"image"
+	_ "image/gif"
 	_ "image/jpeg"
 	_ "image/png"
-	_ "image/gif"
 
 	"github.com/42wim/matterbridge/bridge"
 	"github.com/42wim/matterbridge/bridge/config"

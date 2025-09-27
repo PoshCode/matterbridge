@@ -168,20 +168,19 @@ func (b *Bslack) JoinChannel(channel config.ChannelInfo) error {
 		return nil
 	}
 
-	b.channels.populateChannels(true)
+	b.channels.populateChannels(false)
 
 	channelInfo, err := b.channels.getChannel(channel.Name)
 	if err != nil {
 		return fmt.Errorf("could not find channel: %#v", err)
 	}
 
-	// we can't join a channel unless we are using legacy tokens #651
+	// we can join a channel if we have `channels:join` scope
 	if !channelInfo.IsMember {
-		b.Log.Infof("Not currently a member of %s. Trying to join by ID (%s)", channel.Name, channelInfo.ID)
 		// try to join the channel
 		_, _, _, err := b.sc.JoinConversation(channelInfo.ID)
 		if err != nil {
-			return fmt.Errorf("the slack integration that matterbridge is using is not member of channel '%s' (and cannot join), please add it manually. %s", channelInfo.Name, err)
+			return fmt.Errorf("the slack integration is not member of channel '%s' (and cannot join by ID: %s), please add it manually. %s", channelInfo.Name, channelInfo.ID, err)
 		}
 	}
 
